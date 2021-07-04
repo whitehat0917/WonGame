@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WON</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="site-logo site-title" href="#">
+        <img src="images/logo.png" alt="site-logo" data-image-blur-on-load-update-occured="true">
+      </a>
+    </div>
+  </header>
+  <section>
+    <div class="container flex justify-center">
+      <div class="number-check-wrapper">
+        <h3 class="title">Check My Wallet Address</h3>
+        <p>Are you holding on to a winning ticket? Here's an easy way to find out.</p>
+        <span class="check-number-form">
+          <input type="won_adr" class="form-control mt-30 mb-30" name="check-number1" id="check-number1" placeholder="Enter Wallet Address 0x..">
+          <div class="number-list-wrapper">
+            <div class="text-center mt-70">
+              <span id="balance-container" class="hidden">
+                <span style="height: 80px;width:100%;">Total Lottery Winnings: <span id="my_winnings_total">0 $WON</span></span>
+                <span style="height: 80px;width:100%;">Last Win: <span id="my_winnings_last">0 $WON</span></span>
+                <span style="height: 40px;width:100%;">My Lottery Tickets: <span id="my_tickets"></span></span>
+                <span style="height: 80px;width:100%;">Wins/Lost: <span id="my_wins_lost">0/0</span></span>
+                <span style="display: none;" id="comp_d">
+                  <span style="height: 40px;width:100%;"><u>Compensation</u></span>
+                  <span style="height: 40px;width:100%;">Remaining: <span id="my_compensation_allowance">0 $WON</span></span>
+                  <span style="height: 80px;width:100%;">Paid: <span id="my_compensation_paid">0 $WON</span></span>
+                </span>
+              </span>  
+              <button type="button" class="cmn-btn" onclick="checkWin();">check my winnings</button>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </section>
+  <section id="gameStats" class="section dark-blue _50-top-padding" style="">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <h2 id="gameStatsCountdown" class="section-title">Game countdown - 01:42:13</h2>
+      </div>
+      <div id="gameStatsWinners" class="winners">
+        <div class="countdown">
+          <div class="countdown-pot">Next LOTTERY IS: <strong id="lotteryPayout"><b>0.20 BNB</b></strong></div>
+          <div class="round-label">round 4<strong id="lotteryPayout"></strong></div>
+        </div>
+        <div class="last-voters-wrapper">
+          <div class="last-7">
+            <div class="p-absolute">Last 7 buyers</div>
+            <div class="table-info">
+              <div class="address-label">Player Address</div>
+              <div class="date-label">Buy Time</div>
+              <div class="amount-tokens__label">Tokens Bought</div>
+              <div class="win-amount__label">Will Win</div>
+            </div>
+            <div class="last__seven-buyers last-buyer">
+              <a id="buyer0Address" href="https://bscscan.com/address/0xB3AC091c400CDfc867D28bBb0f25B1BEF87FF424" class="token-address">No Buyer</a><a id="buyer0BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer0Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer0Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+            <div class="last__seven-buyers">
+              <a id="buyer1Address" href="#" class="token-address">No Buyer</a><a id="buyer1BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer1Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer1Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+            <div class="last__seven-buyers">
+              <a id="buyer1Address" href="#" class="token-address">No Buyer</a><a id="buyer1BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer1Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer1Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+            <div class="last__seven-buyers">
+              <a id="buyer1Address" href="#" class="token-address">No Buyer</a><a id="buyer1BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer1Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer1Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+            <div class="last__seven-buyers">
+              <a id="buyer1Address" href="#" class="token-address">No Buyer</a><a id="buyer1BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer1Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer1Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+            <div class="last__seven-buyers">
+              <a id="buyer1Address" href="#" class="token-address">No Buyer</a><a id="buyer1BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer1Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer1Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+            <div class="last__seven-buyers">
+              <a id="buyer1Address" href="#" class="token-address">No Buyer</a><a id="buyer1BuyDate" href="#" class="buy__date">No Buyer</a>
+              <div id="buyer1Tokens" class="tokens-bought">No Buyer</div>
+              <div id="buyer1Win" class="win-text"><b>No Buyer</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</html>
