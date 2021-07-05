@@ -6,8 +6,16 @@ html{
 	font-size: 16px;
 }
 body{
-	background-color: #0f0232;
+	background-color: #000000;
 	font-family: "Josefin";
+	min-height: 100vh;
+}
+section{
+	min-height: calc(100vh - 75px);
+	display: flex;
+}
+section > div{
+	margin: auto auto;
 }
 .flex{
 	display: flex;
@@ -17,24 +25,24 @@ body{
 }
 .number-check-wrapper{
     padding: 30px;
-    background-color: #4939c1;
+    background-color: #e4c04b;
     border-radius: 20px;
     max-width: 400px;
 }
 .number-check-wrapper .title{
-	color: white;
+	color: black;
 }
 .number-check-wrapper p, .number-check-wrapper span{
-	color: #c4cbf9;
+	color: #000000;
 }
 .number-check-wrapper p{
 	font-size: 18px;
 }
 .check-number-form .form-control{
     min-height: 48px;
-    background-color: #392ba6;
+    background-color: #cba119;
     border: none;
-    color: #ffffff;
+    color: #000000;
     padding: 10px 30px;
     border-radius: 999px;
     font-size: 1rem;
@@ -105,7 +113,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 0%;
-    background-color: #102a4e;
+    background-color: #D4AF37;
 }
 .countdown-pot{
 	font-size: 22px;
@@ -162,7 +170,7 @@ body{
 	color: white;
 }
 .last__seven-buyers.last-buyer{
-    background-color: #0d3161;
+    background-color: #D4AF37;
     transform: scale(1.03);
 }
 .buy__date{
@@ -185,5 +193,8 @@ body{
     align-items: center;
     border-bottom: 1px solid #000;
     border-radius: 0%;
-    background-color: #0d2a52;
+    background-color: #D4AF37;
+}
+.site-logo img{
+	height: 75px;
 }

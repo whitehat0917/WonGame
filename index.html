@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>LOTTOSCAPE</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="site-logo site-title" href="#">
+        <img src="images/logo.jpg" alt="site-logo" data-image-blur-on-load-update-occured="true">
+      </a>
+    </div>
+  </header>
+  <section>
+    <div class="container flex justify-center">
+      <div class="number-check-wrapper">
+        <h3 class="title">Check My Wallet Address</h3>
+        <p>Are you holding on to a winning ticket? Here's an easy way to find out.</p>
+        <span class="check-number-form">
+          <input type="won_adr" class="form-control mt-30 mb-30" name="check-number1" id="check-number1" placeholder="Enter Wallet Address 0x..">
+          <div class="number-list-wrapper">
+            <div class="text-center mt-70">
+              <span id="balance-container" class="hidden">
+                <span style="height: 80px;width:100%;">Total Lottery Winnings: <span id="my_winnings_total">0 $WON</span></span>
+                <span style="height: 80px;width:100%;">Last Win: <span id="my_winnings_last">0 $WON</span></span>
+                <span style="height: 40px;width:100%;">My Lottery Tickets: <span id="my_tickets"></span></span>
+                <span style="height: 80px;width:100%;">Wins/Lost: <span id="my_wins_lost">0/0</span></span>
+                <span style="display: none;" id="comp_d">
+                  <span style="height: 40px;width:100%;"><u>Compensation</u></span>
+                  <span style="height: 40px;width:100%;">Remaining: <span id="my_compensation_allowance">0 $WON</span></span>
+                  <span style="height: 80px;width:100%;">Paid: <span id="my_compensation_paid">0 $WON</span></span>
+                </span>
+              </span>  
+              <button type="button" class="cmn-btn" onclick="checkWin();">check my winnings</button>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </section>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</html>
