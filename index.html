@@ -3,14 +3,15 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>LOTTOSCAPE</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <header>
-    <div class="container">
+    <button class="button connect-wallet">Connect Wallet</button>
+    <div class="container header-wrapper">
       <a class="site-logo site-title" href="#">
-        <img src="images/logo.jpg" alt="site-logo" data-image-blur-on-load-update-occured="true">
+        <img src="images/logo.png" alt="site-logo" data-image-blur-on-load-update-occured="true">
       </a>
     </div>
   </header>
@@ -19,25 +20,11 @@
       <div class="number-check-wrapper">
         <h3 class="title">Check My Wallet Address</h3>
         <p>Are you holding on to a winning ticket? Here's an easy way to find out.</p>
-        <span class="check-number-form">
-          <input type="won_adr" class="form-control mt-30 mb-30" name="check-number1" id="check-number1" placeholder="Enter Wallet Address 0x..">
-          <div class="number-list-wrapper">
-            <div class="text-center mt-70">
-              <span id="balance-container" class="hidden">
-                <span style="height: 80px;width:100%;">Total Lottery Winnings: <span id="my_winnings_total">0 $WON</span></span>
-                <span style="height: 80px;width:100%;">Last Win: <span id="my_winnings_last">0 $WON</span></span>
-                <span style="height: 40px;width:100%;">My Lottery Tickets: <span id="my_tickets"></span></span>
-                <span style="height: 80px;width:100%;">Wins/Lost: <span id="my_wins_lost">0/0</span></span>
-                <span style="display: none;" id="comp_d">
-                  <span style="height: 40px;width:100%;"><u>Compensation</u></span>
-                  <span style="height: 40px;width:100%;">Remaining: <span id="my_compensation_allowance">0 $WON</span></span>
-                  <span style="height: 80px;width:100%;">Paid: <span id="my_compensation_paid">0 $WON</span></span>
-                </span>
-              </span>  
-              <button type="button" class="cmn-btn" onclick="checkWin();">check my winnings</button>
-            </div>
-          </div>
-        </span>
+        <div class="number-list-wrapper hidden">
+          <h4>Your Wallet have <span id="ticket-amount">0</span> tickets!</h4>
+        </div>
+        <input type="won_adr" class="form-control mt-30 mb-30" name="check-number1" id="check-wallet" placeholder="Enter Wallet Address">
+        <button type="button" class="cmn-btn disabled" onclick="checkWin();" disabled>check my winnings</button>
       </div>
     </div>
   </section>
@@ -46,5 +33,12 @@
 src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+<script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
 <script src="main.js"></script>
 </html>
