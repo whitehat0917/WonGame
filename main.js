@@ -1994,8 +1994,8 @@ async function onConnect() {
 }
 
 async function onDisconnect() {
-  if(provider.close) {
-    await provider.close();
+  if(provider) {
+    // await provider.close();
     await web3Modal.clearCachedProvider();
     provider = null;
     jQuery(".stake-button").attr("disabled", true);
@@ -2013,7 +2013,7 @@ async function fetchAccountData() {
 	// Get list of accounts of the connected wallet
 	const accounts = await web3.eth.getAccounts();
 	selectedAccount = accounts[0];
-	contract = new web3.eth.Contract(abi, "0x230bF622f890813BF493cc1BB2B714c4479AcbEe");
+	contract = new web3.eth.Contract(abi, "0xCD688ef95c63EF3b14da703035c1504220e3c769");
 	tokenContract = new web3.eth.Contract(abiToken, "0xE0af16C9bAb2E5fb2fc41573d1f7b6F2aC18873c");
 	jQuery(".stake-button").attr("disabled", false);
 	jQuery(".stake-button").removeClass("disabled");
@@ -2059,6 +2059,7 @@ async function getDataInfo(){
 			gameIsActive = await contract.methods.gameIsActive().call();
 		}else{
 			gameStatus = await contract.methods.gameStats().call();
+			console.log(gameStatus)
 			if (lastBuyerData.join(",") != gameStatus.lastBuyerData.join(",")){
 				lastBuyerData = gameStatus.lastBuyerData;
 					timeLeft = await contract.methods.timeLeft().call();
@@ -2072,7 +2073,7 @@ async function getDataInfo(){
 						var buyDate = new Date(lastBuyerData[i*6+3]*1000);
 						jQuery("#buyer"+i+"BuyDate").html(buyDate.getHours()+":"+buyDate.getMinutes()+":"+buyDate.getSeconds());
 						jQuery("#buyer"+i+"Tokens").html(web3.utils.fromWei(lastBuyerData[i*6], "nano"));
-						jQuery("#buyer"+i+"Win").html(parseFloat(web3.utils.fromWei(lastBuyerData[i*6+5], "ether")).toFixed(6) + " BNB");
+						jQuery("#buyer"+i+"Win").html(parseFloat(web3.utils.fromWei(lastBuyerData[i*6+5], "nano")).toFixed(6) + " BNB");
 					}else{
 						jQuery("#buyer"+i+"Address").attr("href", "#");
 						jQuery("#buyer"+i+"Address").html("No Buyer");
@@ -2081,7 +2082,7 @@ async function getDataInfo(){
 						jQuery("#buyer"+i+"Win").html("No Buyer");
 					}
 				}
-				var nextProfit = await web3.eth.getBalance("0x230bF622f890813BF493cc1BB2B714c4479AcbEe");
+				var nextProfit = await web3.eth.getBalance("0xCD688ef95c63EF3b14da703035c1504220e3c769");
 				nextProfit = web3.utils.fromWei(nextProfit, "ether");
 				nextProfit = parseFloat(nextProfit) / 4;
 				nextProfit = nextProfit.toFixed(6);
@@ -2104,6 +2105,7 @@ async function buyTicket(){
 		return;
 	}
 	var amount = Web3.utils.toWei(jQuery("#amount").val(), 'nano');
+	console.log(amount)
     var buyStatus = await contract.methods.buy(amount).send({from: selectedAccount});
     getDataInfo();
 
@@ -2133,6 +2135,7 @@ function startTimer(duration) {
 jQuery(document).ready(function(){
   	jQuery(".connect-wallet").on("click", function(){
 	  	if (provider){
+	  		console.log("-------")
 	  		onDisconnect();
 	  		jQuery(".connect-wallet").html("Connect Wallet");
 	  	}else{
